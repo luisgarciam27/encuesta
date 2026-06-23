@@ -19,7 +19,38 @@ type FormData = {
   comentarios: string;
 };
 
-export default function App() {
+import { useState } from 'react';
+import { motion } from 'motion/react';
+
+type FormData = {
+  nombre: string;
+  enviaFruta: string;
+  frutaFavorita: string;
+  otraFruta: string;
+  practicidad: string;
+  consumoHijo: string;
+  valoracionSnack: string;
+  dispuestoPagar: string;
+  disponibilidadColegio: string;
+  comentarios: string;
+};
+
+import { useState } from 'react';
+
+type FormData = {
+  nombre: string;
+  enviaFruta: string;
+  frutaFavorita: string;
+  otraFruta: string;
+  practicidad: string;
+  consumoHijo: string;
+  valoracionSnack: string;
+  dispuestoPagar: string;
+  disponibilidadColegio: string;
+  comentarios: string;
+};
+
+const App = () => {
   const [formData, setFormData] = useState<FormData>({
     nombre: '',
     enviaFruta: '',
@@ -45,19 +76,9 @@ export default function App() {
     setIsSubmitted(true);
   };
 
-  const calculateProgress = () => {
-    const fields = Object.values(formData);
-    const filledFields = fields.filter(field => field !== '').length;
-    return (filledFields / fields.length) * 100;
-  };
-
   if (isSubmitted) {
     return (
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="min-h-screen bg-neutral-50 flex items-center justify-center p-6"
-      >
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-6">
         <div className="bg-white p-8 rounded-2xl shadow-lg max-w-lg w-full text-center">
           <h2 className="text-3xl font-sans font-medium text-neutral-900 mb-4">¡Gracias!</h2>
           <p className="font-sans text-neutral-600">Hemos recibido tus respuestas sobre la lonchera escolar de {formData.nombre || 'tu hijo(a)'}.</p>
@@ -68,28 +89,17 @@ export default function App() {
             Nueva encuesta
           </button>
         </div>
-      </motion.div>
+      </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-neutral-50 py-12 px-6">
-      <motion.form 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <form 
         onSubmit={handleSubmit} 
         className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-neutral-100"
       >
-        <header className="mb-8">
-            <h1 className="text-2xl font-sans font-medium text-neutral-900 mb-4">🍍 Encuesta rápida sobre frutas para loncheras escolares 🍊</h1>
-            <div className="w-full bg-neutral-100 rounded-full h-2.5">
-                <motion.div 
-                    className="bg-neutral-900 h-2.5 rounded-full"
-                    style={{ width: `${calculateProgress()}%` }}
-                    transition={{ duration: 0.3 }}
-                />
-            </div>
-        </header>
+        <h1 className="text-2xl font-sans font-medium text-neutral-900 mb-8">🍍 Encuesta rápida sobre frutas para loncheras escolares 🍊</h1>
 
         <div className="space-y-6">
           <div>
@@ -181,8 +191,15 @@ export default function App() {
         <button type="submit" className="mt-8 w-full bg-neutral-900 text-white py-3 rounded-lg font-medium hover:bg-neutral-800 transition">
           Enviar respuestas
         </button>
-      </motion.form>
+      </form>
     </div>
   );
-}
+};
+
+export default App;
+
+
+
+
+
 
