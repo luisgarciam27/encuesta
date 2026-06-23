@@ -173,7 +173,7 @@ const App = () => {
           </fieldset>
 
           <fieldset>
-            <legend className="text-sm font-medium text-neutral-900 mb-2">Si este producto estuviera disponible en el colegio o cerca de él, ¿te interesaría comprarlo?</legend>
+            <legend className="text-sm font-medium text-neutral-900 mb-2">Si este producto, frutas para loncheras escolares 🍊, estuviera disponible en el colegio o cerca de él, ¿te interesaría comprarlo?</legend>
             {['Sí', 'No', 'Tal vez'].map((op) => (
               <label key={op} className="flex items-center space-x-2 text-sm text-neutral-700">
                 <input type="radio" name="disponibilidadColegio" value={op} onChange={handleChange} />
