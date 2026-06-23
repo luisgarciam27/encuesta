@@ -1,0 +1,6 @@
+{
+  "name": "Encuesta de Frutas para Loncheras",
+  "description": "Una encuesta rápida para conocer las preferencias de los padres sobre frutas para loncheras escolares.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
